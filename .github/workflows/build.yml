@@ -42,9 +42,23 @@ jobs:
                       mv target/${{ matrix.rust_target }}/debug/parcel ${{ matrix.artifact_name }}
                   fi
 
-            - name: Upload da build
-              uses: actions/upload-artifact@v7.0.1
+            # - name: Upload da build
+            #   uses: actions/upload-artifact@v7.0.1
+            #   with:
+            #       # A file, directory or wildcard pattern that describes what to upload.
+            #       path: ${{ matrix.artifact_name }}
+            #       if-no-files-found: error
+            #       archive: true
+
+            - name: Publish da build
+              uses: ncipollo/release-action@v1
               with:
-                  # A file, directory or wildcard pattern that describes what to upload.
-                  path: ${{ matrix.artifact_name }}
-                  if-no-files-found: error
+                  tag: "rolling-build"
+                  removeArtifacts: false
+                  replacesArtifacts: true
+                  allowUpdates: true
+                  omitBody: true
+                  omitBodyDuringUpdate: true
+                  omitNameDuringUpdate: true
+                  artifacts: ${{ matrix.artifact_name }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
