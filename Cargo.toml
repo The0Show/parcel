@@ -11,4 +11,4 @@ prcx = { git = "https://github.com/zrksyd/prcx", branch = "xml-style-zrksyd" }
 structopt = "0.3.26"
 
 [patch.crates-io]
-prc-rs = { git = "https://github.com/blu-dev/prc-rs", branch = "comments-handled" }
+prc-rs = { git = "https://github.com/ultimate-research/prc-rs", branch = "master" }
