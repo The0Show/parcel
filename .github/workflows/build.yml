@@ -22,8 +22,6 @@ jobs:
                       artifact_name: parcel-unix
                     - rust_target: x86_64-pc-windows-gnu
                       artifact_name: parcel-win.exe
-                    - rust_target: aarch64-apple-darwin
-                      artifact_name: parcel-mac
         steps:
             - uses: actions/checkout@v4
 
